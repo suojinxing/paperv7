@@ -1,6 +1,7 @@
 package cn.tedu.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,8 +15,8 @@ public class FileController {
 	@Autowired
 	private FileService fileService;
 
-	@RequestMapping("pic/uploadHeadImg")
-	public JsonResult fileUpload(MultipartFile fileImage, String userId) {
+	@PostMapping("pic/uploadHeadImg")
+	public String fileUpload(MultipartFile fileImage, String userId) {
 		System.out.println(userId);
 		System.out.println("FileController.fileUpload()" + fileImage);
 		String picName = fileImage.getOriginalFilename();
@@ -24,6 +25,6 @@ public class FileController {
 
 		JsonResult result = new JsonResult("upload ok");
 		result.setData(picName);
-		return result;
+		return "上传成功";
 	}
 }
