@@ -16,7 +16,7 @@ public class FileController {
 	private FileService fileService;
 
 	@PostMapping("pic/uploadHeadImg")
-	public String fileUpload(MultipartFile fileImage, String userId) {
+	public JsonResult fileUpload(MultipartFile fileImage, String userId) {
 		System.out.println(userId);
 		System.out.println("FileController.fileUpload()" + fileImage);
 		String picName = fileImage.getOriginalFilename();
@@ -25,6 +25,6 @@ public class FileController {
 
 		JsonResult result = new JsonResult("upload ok");
 		result.setData(picName);
-		return "上传成功";
+		return result;
 	}
 }

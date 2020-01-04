@@ -78,14 +78,14 @@
     <div @mouseover="show" id='self-info' class="col-2">
         <img id='head-img' :src="imgSrc"/>
         <div id='modify-head-img'>
-            <form action="/file/pic/uploadHeadImg" method="post" enctype="multipart/form-data">
-                <input type="hidden" value="${username }"/>
+<%--            <form action="/file/pic/uploadHeadImg" method="post" enctype="multipart/form-data">--%>
+                <input id="userId" type="hidden" value="${username }"/>
                 <img :src="newImgSrc" width="200px" height="170px" alt="">
                 <input class="btn-info" id="file-input" name="fileImage" type="file"/>
                 <br/>
-                <input class="btn btn-info" type="submit" value="提交"/>
+                <input @click="uploadImg" class="btn btn-info" value="提交"/>
                 <button class="btn btn-warning" @click="hide">取消</button>
-            </form>
+<%--            </form>--%>
         </div>
         <span>${username }</span>
     </div>
@@ -106,6 +106,36 @@
             },
             hide() {
                 $("#modify-head-img").hide();
+            },
+            uploadImg(){
+                // # 创建formdata对象
+                let formData = new FormData();
+                formData.append('fileImage', $('#file-input')[0].files[0]);
+                // # 给formData对象添加<input>标签,注意与input标签的ID一致
+
+                let userId = $("#userId").val();
+
+                let data = {
+                    "fileImage":formData,
+                    "userId":userId
+                }
+                console.log(data)
+                $.ajax({
+                    url : '/file/pic/uploadHeadImg',//这里写你的url
+                    type : 'POST',
+                    data : formData,
+                    contentType: false,// 当有文件要上传时，此项是必须的，否则后台无法识别文件流的起始位置
+                    processData: false,// 是否序列化data属性，默认true(注意：false时type必须是post)
+                    dataType: 'json',//这里是返回类型，一般是json,text等
+                    clearForm: true,//提交后是否清空表单数据
+                    success: function(result) {   //提交成功后自动执行的处理函数，参数data就是服务器返回的数据。
+                        alert(result.message);
+                        $("#modify-head-img").hide();
+                    },
+                    error: function(data, status, e) {  //提交失败自动执行的处理函数。
+                        console.error(e);
+                    }
+                })
             }
         }
     })
