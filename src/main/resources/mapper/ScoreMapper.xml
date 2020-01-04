@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 门店表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="cn.tedu.dao.ScoreMapper">
+	<resultMap type="cn.tedu.pojo.Score" id="scoreRM">
+		<id column="score_id" property="scoreId" />
+		<id column="stu_id" property="stuId" />
+		<result column="stu_name" property="stuName" />
+		<result column="chinese_score" property="chineseScore" />
+		<result column="math_score" property="mathScore" />
+		<result column="english_score" property="englishScore" />
+		<result column="physics_score" property="physicsScore" />
+		<result column="chemistry_score" property="chemistryScore" />
+		<result column="biology_score" property="biologyScore" />
+		<result column="history_score" property="historyScore" />
+		<result column="geography_score" property="geographyScore" />
+		<result column="politics_score" property="politicsScore" />
+		<result column="total_score" property="totalScore" />
+	</resultMap>
+	<!-- 获取所有成绩表的信息 -->
+	<select id="selectAll" resultMap="scoreRM">
+		select * from score;
+	</select>
+
+	<select id="selectByScoreIdAndStuId" resultMap="scoreRM">
+		select * from
+		score
+		where score_id=#{scoreId}
+		and stu_id=#{stuId}
+		order by total_score
+		desc
+	</select>
+
+	<select id="selectByScoreId" resultMap="scoreRM">
+		select * from score
+		where
+		score_id=#{scoreId}
+	</select>
+	<select id="selectByStuid" resultMap="scoreRM">
+		select * from score
+		where
+		stu_id=#{stuId}
+	</select>
+
+	<update id="updateStuScores">
+		update score
+		<set>
+			<if test="chineseScore!=null">
+				chinese_score=#{chineseScore},
+			</if>
+			<if test="mathScore!=null">
+				math_score=#{mathScore},
+			</if>
+			<if test="englishScore!=null">
+				english_score=#{englishScore},
+			</if>
+			<if test="physicsScore!=null">
+				physics_score=#{physicsScore},
+			</if>
+			<if test="chemistryScore!=null">
+				chemistry_score=#{chemistryScore},
+			</if>
+			<if test="biologyScore!=null">
+				biology_score=#{biologyScore},
+			</if>
+			<if test="politicsScore!=null">
+				politics_score=#{politicsScore},
+			</if>
+			<if test="geographyScore!=null">
+				geography_score=#{geographyScore},
+			</if>
+			<if test="historyScore!=null">
+				history_score=#{historyScore},
+			</if>
+			<if test="1!=null">
+				total_score=#{totalScore}
+				<!-- (#{chineseScore} + #{mathScore} + #{englishScore} + #{physicsScore} 
+					+ #{chemistryScore} + #{biologyScore} + #{politicsScore} + #{geographyScore} 
+					+ #{historyScore}) -->
+			</if>
+		</set>
+		where score_id=#{scoreId} and stu_id=#{stuId}
+	</update>
+	<insert id="insertObjects">
+		insert into score(stu_id,score_id,stu_name)
+		values(#{stuId},#{scoreId},#{stuName})
+	</insert>
+	<delete id="deleteObjects">
+		delete from score where stu_id=#{stuId};
+	</delete>
+	<delete id="deleteObjectsByScoreId">
+		delete from score where score_id=#{scoreId};
+	</delete>
+	<update id="updateObjects">
+		update score
+		set
+		stu_name=#{stuName}
+		where
+		stu_id=#{stuId} and score_id=#{scoreId}
+	</update>
+</mapper>

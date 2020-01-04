@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.scoreList-model{
+	display: none;
+	position: relative;
+	width: 100%;
+	height: 700px;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	/*------*/
+	background: background: rgb(244, 246, 249);
+}
+.scoreList-model .container1 {
+	width: 1100px;
+	width: 100%; height : 630px;
+	margin: 0 auto;
+	background: white;
+	box-shadow: 2px 2px 5px grey;
+	overflow: hidden;
+	height: 630px;
+}
+
+.scoreList-model .container1 #scoreList-model-update-btn,
+.scoreList-model .container1 #scoreList-model-save-btn,
+.scoreList-model .container1 #scoreList-model-cancel-btn{
+	line-height: 35px;
+	height: 35px;
+	padding: 0;
+	width: 90px;
+}
+.scoreList-model .container1 #scoreList-show-up-data {
+	position: absolute;
+	display: none;
+	width: 1100px;
+	width: 100%;
+	height: 630px;
+	z-index: 399;
+	float: left;
+	background: white;
+}
+.scoreList-model .table {
+	width: 1100px;
+	width: 100%;
+	height: 500px;
+	margin: auto;
+	overflow: hidden;
+}
+.scoreList-model .container1 .table .row {
+	border-bottom: 2px solid rgb(234, 236, 239);
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+
+.scoreList-model .container1 .table .row:hover {
+	background: rgb(244, 246, 249);
+}
+
+.scoreList-model .btn{
+	display: inline-block;
+	width: 120px;
+	height: 25px;
+	margin-left: 27px;
+}

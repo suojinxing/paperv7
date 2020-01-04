@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 门店表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="cn.tedu.dao.StudentMapper">
+	<resultMap type="cn.tedu.pojo.Student" id="studentRM">
+		<id column="id" property="id"/>
+		<result column="stu_id" property="stuId"/>
+		<result column="name" property="name"/>
+		<result column="class_id" property="classId"/>
+		<result column="age" property="age"/>
+		<result column="gender" property="gender"/>
+	</resultMap>
+
+	<!-- 获取所有学生的信息 -->
+	<select id="selectAllByClassId" resultMap="studentRM">
+		select * from student where class_id=#{classId}
+	</select>
+	<select id="selectAll" resultMap="studentRM">
+		select * from student
+	</select>
+	<select id="selectByStuId" resultMap="studentRM">
+		select * from student where stu_id=#{stuId}
+	</select>
+	<update id="updateStudent">
+		update student 
+		<set>
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="classId!=null">
+				class_id=#{classId},
+			</if>
+			<if test="age!=null">
+				age=#{age},
+			</if>
+			<if test="gender!=null">
+				gender=#{gender},
+			</if>
+		</set>
+		where stu_id=#{stuId}
+	</update>
+	<insert id="insertStudent">
+		insert into student(stu_id,name,class_id,age,gender)
+		values (#{stuId},#{name},#{classId},#{age},#{gender})
+	</insert>
+</mapper>

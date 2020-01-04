@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 门店表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="cn.tedu.dao.TeacherMapper">
+	<resultMap type="cn.tedu.pojo.Teacher" id="teacherRM">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="age" property="age"/>
+		<result column="salary" property="salary"/>
+		<result column="hiredate" property="hiredate"/>
+		<result column="gender" property="gender"/>
+		<result column="teaching" property="teaching"/>
+		<result column="teacher_id" property="teacherId"/>
+	</resultMap>
+	<!-- 获取所有教师的信息 -->
+	<select id="selectAll" resultMap="teacherRM">
+		select * from teacher;
+	</select>
+	
+	<!-- 根据用户名和密码获取教师信息 -->
+	<select id="selectByTeacherId" resultMap="teacherRM">
+		select * from teacher where teacher_id=#{teacherId}
+	</select>
+	
+	
+	<update id="updateTeacher">
+		update teacher 
+		<set>
+			<if test="name!=null">
+				name=#{name},
+			</if>
+			<if test="age!=null">
+				age=#{age},
+			</if>
+			<if test="gender!=null">
+				gender=#{gender},
+			</if>
+			<if test="salary!=null">
+				salary=#{salary},
+			</if>
+			<if test="teaching!=null">
+				teaching=#{teaching}
+			</if>
+		</set>
+		where teacher_id = #{teacherId}
+	</update>
+	<insert id="insertTeacher">
+		insert into teacher(name,age,salary,gender,teaching,teacher_id)
+		values(#{name},#{age},#{salary},#{gender},#{teaching},#{teacherId});
+	</insert>
+	<delete id="deleteTeacher">
+		delete from teacher 
+		where teacher_id = #{teacherId}
+	</delete>
+</mapper>

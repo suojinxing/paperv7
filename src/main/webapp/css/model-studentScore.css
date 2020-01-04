@@ -1,0 +1,83 @@
+@charset "UTF-8";
+.studentScore-model{
+	display: none;
+	position: relative;
+	width: 858px;
+	height: 780px;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	/*------*/
+	background: rgba(254, 222, 234, 0.4);
+}
+.studentScore-model .tip{
+	width: 400px;
+	height:20px;
+	padding-top: 20px;
+	color: red;
+}
+.studentScore-model .table {
+	width: 802px;
+	height: 660px;
+	margin: auto;
+	padding-top: 10px;
+	overflow: scroll;
+}
+/*表头*/
+.studentScore-model .table .class-headline {
+	width: 800px;
+	height: 45px;
+	border: 1px solid black;
+	background: #ccc;
+}
+
+.studentScore-model .table .class-headline .td {
+	float: left;
+	width: 110px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 17px;
+	text-align: center;
+	border-right: 1px solid black;
+}
+
+.studentScore-model .table .class-headline .td:last-child {
+	border: none;
+}
+
+/*表体*/
+.studentScore-model .table .tr {
+	width: 800px;
+	height: 30px;
+	border: 1px solid black;
+	background: #ccc;
+}
+.studentScore-model .table .tr:nth-child(even) {
+	/*奇偶行颜色不同*/
+	background: white;
+}
+.studentScore-model .table .tr:nth-child(odd) input {
+	/*奇偶行文本框的颜色不同*/
+	background: #ccc;
+}
+.studentScore-model .table .tr .td {
+	float: left;
+	width: 110px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+	border-right: 1px solid black;
+}
+
+
+.studentScore-model .table .tr .td:last-child {
+	border: none;
+}
+
+.studentScore-model .btn{
+	display: inline-block;
+	width: 120px;
+	height: 25px;
+	margin-left: 27px;
+}

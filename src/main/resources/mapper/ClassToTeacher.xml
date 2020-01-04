@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 门店表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="cn.tedu.dao.ClassToTeacherMapper">
+	<resultMap type="cn.tedu.pojo.ClassToTeacher" id="classToTeacherRM">
+		<id column="class_id" property="classId"/>
+		<id column="teacher_id" property="teacherId"/>
+		<result column="teaching" property="teaching"/>
+	</resultMap>
+	<!-- 获取所有用户的信息 -->
+
+	<!-- 根据教师id获取教师所教课的班级 -->
+	<select id="selectByTeacherId" resultMap="classToTeacherRM">
+		select * from class_to_teacher where teacher_id=#{teacherId}
+	</select>
+	
+</mapper>

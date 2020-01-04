@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 门店表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="cn.tedu.dao.LogMapper">
+	<!-- 获取所有用户的信息 -->
+	<select id="findPageObjects" resultType="cn.tedu.vo.Log">
+		select * from log
+		<where>
+			<if test="username!=null">
+				username=#{username}
+			</if>
+		</where>
+		limit #{startIndex},#{pageSize}
+	</select>
+
+	<select id="getRowCount" resultType="int">
+		select count(*) from log;
+	</select>
+</mapper>

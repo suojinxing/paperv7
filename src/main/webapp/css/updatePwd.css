@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.bg{
+	display: none;
+	width: 1500px;
+	height: 1000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background: rgba(244,244,244,0.9);
+}
+.update-password{
+	display: block;
+	width: 450px;
+	height: 410px;
+	position: relative;
+	top: 100px;
+	left: 500px;
+	background: white;
+	padding-top: 20px;
+}
+
+.update-password input[name='username']{
+	outline: none;
+	color: #ccc;
+}
+.update-password form{
+	width: 402px;
+	height: 410px;
+	margin: auto;
+}
+.update-password form>input {
+	display: block;
+	width: 398px;
+	height: 54px;
+	text-align:center;
+	border: 1px solid #dbdbdb;
+	margin-bottom: 20px;
+}
+#submit{
+	display: inline-block;
+	background: rgb(88,150,249);
+	color: white;
+	border-radius: 5px;
+}

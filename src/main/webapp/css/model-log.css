@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+.log-model {
+	display: none;
+	position: relative;
+	width: 100%;
+	height: 700px;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	/*------*/
+	background: rgb(244, 246, 249);
+}
+
+.log-model .container1 {
+	width: 1100px;
+	width: 100%; height : 630px;
+	margin: 0 auto;
+	background: white;
+	box-shadow: 2px 2px 5px grey;
+	overflow: hidden;
+	height: 630px;
+}
+
+.log-model .container1 #log-model-update-btn,
+.log-model .container1 #log-model-save-btn,
+.log-model .container1 #log-model-cancel-btn{
+	line-height: 25px;
+	padding: 0;
+	width: 90px;
+}
+
+.log-model .container1 #user-show-up-data {
+	position: absolute;
+	display: none;
+	width: 1100px;
+	width: 100%;
+	height: 630px;
+	z-index: 399;
+	float: left;
+	background: white;
+}
+.log-model .container1 .table {
+	width: 1100px;
+	width: 100%;
+	height: 500px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.log-model .container1 .table .row {
+	border-bottom: 2px solid rgb(234, 236, 239);
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+.log-model .container1 .table .row:hover {
+	background: rgb(244, 246, 249);
+}
+
+.log-model .btn {
+	display: inline-block;
+	width: 120px;
+	height: 25px;
+	margin-left: 27px;
+}
+
+/*分页*/
+.log-model #log-pageId {
+	width: 800px;
+	height: 30px;
+	margin: auto;
+	/*----*/
+	cursor: pointer;
+}
+
+.log-model #log-pageId ul {
+	width: 800px;
+	height: 30px;
+}
+
+.log-model #log-pageId li {
+	float: left;
+	width: 109px;
+	height: 30px;
+	maigin: 0;
+	line-height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.log-model #log-pageId li a {
+	font-size: 14px;
+	display: inline-block;
+	width: 110px;
+	height: 30px;
+}

@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.teacher-model {
+	display: none;
+	position: relative;
+	width: 99%;
+	height: 690px;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
+	
+	/*------*/
+	background: rgb(244, 246, 249);
+	background: white;
+	box-shadow: 2px 2px 5px grey;
+}
+
+#teacher-show-up-data {
+	position: absolute;
+	display: none;
+	width: 1100px;
+	width: 100%;
+	height: 630px;
+	z-index: 399;
+	float: left;
+	background: white;
+}
+
+#teacher-model-update-btn,
+#teacher-model-save-btn,
+#teacher-model-cancel-btn{
+	padding: 0;
+	line-height: 35px;
+	height: 35px;
+}
+
+.teacher-model .container1 {
+	width: 1100px;
+	width: 100%;
+	height: 700px;
+	margin: 0 auto;
+	background: white;
+	
+	overflow: hidden;
+	height: 630px;
+}
+
+.teacher-model .table {
+	width: 100%;
+	height: 660px;
+	margin: auto;
+	padding-top:0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.teacher-model .table .row {
+	border-bottom: 2px solid rgb(234, 236, 239);
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+}
+
+.teacher-model .table .row:hover {
+	background: rgb(244, 246, 249);
+}
+
+.teacher-model .btn {
+	display: inline-block;
+	width: 120px;
+	height: 25px;
+	margin-left: 27px;
+}

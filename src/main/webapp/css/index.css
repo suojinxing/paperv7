@@ -1,0 +1,39 @@
+@charset "UTF-8";
+body{
+	/*背景图片*/
+	background-image: url("../img/bg.jpg");
+}
+
+body #container{
+	width: 1080px;
+	height: 780px;
+	margin: 0 auto;
+	background: white;
+	
+	/*----*/
+}
+
+/*头部包含图片的容器*/
+body #container .head{
+	width:1080px;
+	height:150px;
+	
+	/*----*/
+}
+
+/* 顶部图片 */
+body #container .head img{
+	opacity:0.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.dao.ClassMapper">
+	<resultMap type="cn.tedu.pojo.Class" id="classRM">
+		<id column="class_id" property="classId" />
+		<result column="headmaster_id" property="headmasterId" />
+		<result column="headmaster_name" property="headmasterName" />
+		<result column="class_size" property="classSize" />
+		<result column="liberal_or_sciences" property="liberalOrSciences" />
+	</resultMap>
+	<select id="selectAll" resultMap="classRM">
+		select * from class order by class_id asc;
+	</select>
+	<select id="selectById" resultMap="classRM">
+		select * from class 
+		where class_id=#{classId}
+	</select>
+	<update id="updateById">
+		update class 
+		<set>
+			<if test="headmasterId!=null">
+				headmaster_id=#{headmasterId},
+			</if>
+			<if test="headmasterName!=null">
+				headmaster_name=#{headmasterName},
+			</if>
+			<if test="classSize!=null">
+				class_size=#{classSize},
+			</if>
+			<if test="liberalOrSciences!=null">
+				liberal_or_sciences =#{liberalOrSciences},
+			</if>
+		</set>
+		where class_id=#{classId}
+	</update>
+	<update id="insertClass">
+		insert into class 
+		values(#{classId},#{headmasterName},#{headmasterId},#{classSize},#{liberalOrSciences})
+	</update>
+	<delete id="deleteById">
+		delete from class where class_id=#{classId}
+	</delete>
+</mapper>
